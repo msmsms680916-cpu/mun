@@ -1143,6 +1143,31 @@ nav .cn span.c{background:linear-gradient(180deg,#8a63ff,#5a35cf)!important}
 @media(max-width:360px){.bzh h1{font-size:26px}.bzt .ar span{margin-left:120px}.bzg{grid-template-columns:repeat(4,1fr)}.bzc b{font-size:16.5px}}
 .bzt .ar span{position:absolute;left:calc(50% + 16px);margin:0}
 @media(max-width:360px){.bzt .ar span{margin:0}}
+/* 누르는 카드 */
+.bzf>button{flex:1;min-width:0;padding:10px 3px 8px;border-radius:14px;background:#fff;border:1px solid var(--line);text-align:center;box-shadow:0 4px 12px rgba(40,20,100,.06);animation:pop .5s both;display:flex;flex-direction:column;align-items:center}
+.bzf>button:nth-of-type(3){background:linear-gradient(160deg,#3b1f9e,#6a3fd8);border:0;color:#fff}
+.bzf>button:nth-of-type(3) small{color:#ffd23f}
+.bzf u{margin-top:auto;padding-top:5px;text-decoration:none;font-size:12px;font-weight:700;color:#6a3fd8;letter-spacing:-.5px}
+.bzf>button:nth-of-type(3) u{color:#e4dcff}
+.bzt button.lv{text-align:left;font:inherit;color:inherit}
+.bzt .lv.br{color:#fff}
+.bzt .lv:after{content:"›";position:absolute;right:62px;top:50%;transform:translateY(-50%);font-size:18px;color:#b8a8ef}
+.bzc>button{text-align:left;font:inherit}
+.bzc u{display:inline-block;margin-top:8px;text-decoration:none;font-size:12.5px;font-weight:900;background:rgba(255,255,255,.2);border-radius:8px;padding:3px 9px}
+.bzr>button,.bzsp>button{padding:10px 2px;border-radius:14px;border:1px solid var(--line);text-align:center;font:inherit;color:inherit;background:#fff}
+.bzsp>button{padding:12px 4px}
+.bzr>button:nth-child(1){background:#f3eeff}.bzr>button:nth-child(2){background:#e6f4ff}.bzr>button:nth-child(3){background:#e8f8ef}.bzr>button:nth-child(4){background:#ffeef4}.bzr>button:nth-child(5){background:#fff8dc}
+.bzsp>button:nth-child(even) span{animation-delay:.6s}
+.bzm>button{position:relative;display:block;width:100%;text-align:left;padding:10px 12px 10px 46px;margin-bottom:8px;border-radius:14px;background:#fff;border:1px solid var(--line);font:inherit;color:inherit}
+.bzm>button:before{content:"";position:absolute;left:21px;top:38px;bottom:-14px;border-left:2px dashed #c9b8ff}
+.bzm>button:last-child:before{display:none}
+.bzm>button.now{background:linear-gradient(150deg,#3b1f9e,#6a3fd8);border:0;color:#fff;box-shadow:0 8px 18px rgba(59,31,158,.25)}
+.bzf>button:active,.bzt button.lv:active,.bzc>button:active,.bzr>button:active,.bzsp>button:active,.bzm>button:active,.bzg button:active{transform:scale(.96);transition:transform .1s}
+.bzip{font-size:15px;line-height:1.7;color:#2a3050}
+.bzt .lv:after{display:none}
+.bzc>button{position:relative;overflow:hidden;padding:14px 12px;border-radius:18px;color:#fff;border:0;box-shadow:0 10px 22px rgba(40,20,100,.18)}
+.bzc>button:after{content:"";position:absolute;top:-10%;left:0;width:35%;height:120%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);transform:translateX(-150%) skewX(-20deg);animation:sweep 4.2s ease-in-out infinite}
+.bzc>button.c2:after{animation-delay:.8s}
 
 </style>
 </head>
@@ -1877,22 +1902,22 @@ R.biz=function(){var el=$('v-biz');
  '<div class="bt"><button class="btn y" data-b="apply" data-k="지사">🏢 지사 신청</button><button class="btn l" data-b="apply" data-k="대리점">🏪 대리점 신청</button></div></div>'+
  /* 연결 흐름 */
  '<div class="h2"><b>🔗 찍으면 학원 → 찍으면 과외</b></div><div class="bzf mx">'+
- [['📷','문제 찍기','찍으면 학원'],['🙋','도저히 모르겠어요','이해 안 됨'],['🧑‍🏫','선생님 부탁해요','찍으면 과외'],['🏫','우리 동네 선생님·학원','지사·대리점 매출']].map(function(x,i){return '<div style="animation-delay:'+(i*.15)+'s"><span>'+x[0]+'</span><b>'+x[1]+'</b><small>'+x[2]+'</small></div>'}).join('<i>›</i>')+'</div>'+
+ [['📷','문제 찍기','찍으면 학원'],['🙋','도저히 모르겠어요','이해 안 됨'],['🧑‍🏫','선생님 부탁해요','찍으면 과외'],['🏫','동네 선생님·학원','지사 매출']].map(function(x,i){return '<button data-b="flow" data-i="'+i+'" style="animation-delay:'+(i*.15)+'s"><span>'+x[0]+'</span><b>'+x[1]+'</b><small>'+x[2]+'</small><u>눌러 보기</u></button>'}).join('<i>›</i>')+'</div>'+
  /* 구조 */
  '<div class="h2"><b>🏛️ 3단 구조와 매출 100원의 흐름</b></div><div class="bzt mx">'+
- '<div class="lv hq"><b>서울 본사</b><small>앱 운영 · 전국 광고 · 정산 · 교육</small><em>30원</em></div><div class="ar"><i></i><span>본사 30 · 가맹비 50%</span></div>'+
- '<div class="lv br"><b>지사 57곳</b><small>증거금 1억 · 구 독점 · 대리점 모집</small><em>30원</em></div><div class="ar"><i></i><span>지사 30 · 가맹비 50%</span></div>'+
- '<div class="lv ag"><b>대리점 최대 1,140곳</b><small>가맹비 1천만 원 · 동네 영업</small><em>40원</em></div><div class="ar"><i></i><span>매출 100원 중 대리점 40원</span></div>'+
- '<div class="lv cu"><b>학원 · 선생님 · 학생</b><small>입점비 · 등록비 · 매칭 수수료 · 이용권</small><em>100원</em></div></div>'+
+ '<button class="lv hq" data-b="lv" data-i="0"><b>서울 본사</b><small>앱 운영 · 전국 광고 · 정산 · 교육</small><em>30원</em></button><div class="ar"><i></i><span>본사 30 · 가맹비 50%</span></div>'+
+ '<button class="lv br" data-b="lv" data-i="1"><b>지사 57곳</b><small>증거금 1억 · 구 독점 · 대리점 모집</small><em>30원</em></button><div class="ar"><i></i><span>지사 30 · 가맹비 50%</span></div>'+
+ '<button class="lv ag" data-b="lv" data-i="2"><b>대리점 최대 1,140곳</b><small>가맹비 1천만 원 · 동네 영업</small><em>40원</em></button><div class="ar"><i></i><span>매출 100원 중 대리점 40원</span></div>'+
+ '<button class="lv cu" data-b="lv" data-i="3"><b>학원 · 선생님 · 학생</b><small>입점비 · 등록비 · 매칭 수수료 · 이용권</small><em>100원</em></button></div>'+
  '<p class="bzn mx">지사 직접 영업 매출은 지사 70 · 본사 30, 본사 광고로 직접 가입한 매출은 본사 100이에요.</p>'+
  /* 조건 */
  '<div class="h2"><b>📋 지사 · 대리점 조건</b></div><div class="bzc mx">'+
- '<div class="c1"><span class="tg3">지사</span><b>증거금 1억 원</b><ul><li>구 단위 <em>독점</em> 영업권</li><li>지역 매출 <em>70%</em></li><li>대리점 가맹비 <em>50%</em></li><li>대리점 20곳 모집권</li></ul></div>'+
- '<div class="c2"><span class="tg3">대리점</span><b>가맹비 1천만 원</b><ul><li>동 1~2개 영업구역</li><li>내 코드 매출 <em>40%</em></li><li>홍보 키트 · QR 제공</li><li>앱 안 정산 화면</li></ul></div></div>'+
+ '<button class="c1" data-b="apply" data-k="지사"><span class="tg3">지사</span><b>증거금 1억 원</b><ul><li>구 단위 <em>독점</em> 영업권</li><li>지역 매출 <em>70%</em></li><li>대리점 가맹비 <em>50%</em></li><li>대리점 20곳 모집권</li></ul><u>신청하기 ›</u></button>'+
+ '<button class="c2" data-b="apply" data-k="대리점"><span class="tg3">대리점</span><b>가맹비 1천만 원</b><ul><li>동 1~2개 영업구역</li><li>내 코드 매출 <em>40%</em></li><li>홍보 키트 · QR 제공</li><li>앱 안 정산 화면</li></ul><u>신청하기 ›</u></button></div>'+
  '<div class="card pad mx mt bzk"><b>💡 지사 본전 계산</b><p>대리점 20곳 × 가맹비 1천만 원 × 50% = <em>1억 원</em><br>이후 지역 매출 70%는 계속 지사 몫이에요.</p></div>'+
  /* 매출원 */
  '<div class="h2"><b>💰 매출이 생기는 곳 5가지</b><small>금액은 예시</small></div><div class="bzr mx">'+
- [['🎫','학생 이용권','9천 원 ~ 50만 원'],['🏫','학원 입점','월 20만 원'],['🧑‍🏫','선생님 등록','월 3만 원'],['🤝','과외 매칭','첫 달 수업료 20%'],['📢','지역 광고','월 10~50만 원']].map(function(x){return '<div><span>'+x[0]+'</span><b>'+x[1]+'</b><small>'+x[2]+'</small></div>'}).join('')+'</div>'+
+ [['🎫','학생 이용권','9천 원 ~ 50만 원'],['🏫','학원 입점','월 20만 원'],['🧑‍🏫','선생님 등록','월 3만 원'],['🤝','과외 매칭','첫 달 수업료 20%'],['📢','지역 광고','월 10~50만 원']].map(function(x,i){return '<button data-b="rev" data-i="'+i+'"><span>'+x[0]+'</span><b>'+x[1]+'</b><small>'+x[2]+'</small></button>'}).join('')+'</div>'+
  /* 계산기 */
  '<div class="h2"><b>🧮 우리 구 수익 계산기</b><small>가정치</small></div><div class="card pad mx bzcalc"><div class="seg3" id="bzS">'+[['low','보수'],['base','기본'],['high','확장']].map(function(x){return '<button data-s="'+x[0]+'" class="'+(BZ.sc===x[0]?'on':'')+'">'+x[1]+'</button>'}).join('')+'</div>'+
  [['a','🏫 입점 학원',0,300,5,'곳'],['t','🧑‍🏫 등록 선생님',0,500,10,'명'],['m','🤝 월 과외 매칭',0,300,5,'건'],['s','🎫 유료 학생',0,5000,100,'명']].map(function(x){return '<div class="sl"><label><span>'+x[1]+'</span><b id="bzv'+x[0]+'">'+fmt(BZ[x[0]])+x[5]+'</b></label><input type="range" min="'+x[2]+'" max="'+x[3]+'" step="'+x[4]+'" value="'+BZ[x[0]]+'" data-k="'+x[0]+'" data-u="'+x[5]+'"></div>'}).join('')+
@@ -1902,11 +1927,11 @@ R.biz=function(){var el=$('v-biz');
  '<div class="bzl mx"><span><i class="o"></i>모집 중</span><span><i class="p"></i>본사 시범 운영</span><span><i class="m"></i>내가 신청함</span></div>'+
  /* 로드맵 */
  '<div class="h2"><b>🗺️ 모집 로드맵</b><small>앱 출시 기준</small></div><div class="bzm mx">'+
- [['0','출시 준비','앱 완성 · 정산 화면 · 계약서 준비'],['1','서울 시범 3곳','~3개월 · 강남 · 양천 · 노원 본사 직영'],['2','서울 25구','4~6개월 · 시범 실적으로 22개 구 모집'],['3','부산 15 · 대구 7','7~9개월 · 서울 운영 사례로 설명회'],['4','대전 5 · 광주 5','10~12개월 · 57개 지사 완성']].map(function(x,i){return '<div class="'+(i===1?'now':'')+'"><i>'+x[0]+'</i><b>'+x[1]+'</b><small>'+x[2]+'</small></div>'}).join('')+'</div>'+
+ [['0','출시 준비','앱 완성 · 정산 화면 · 계약서 준비'],['1','서울 시범 3곳','~3개월 · 강남 · 양천 · 노원 본사 직영'],['2','서울 25구','4~6개월 · 시범 실적으로 22개 구 모집'],['3','부산 15 · 대구 7','7~9개월 · 서울 운영 사례로 설명회'],['4','대전 5 · 광주 5','10~12개월 · 57개 지사 완성']].map(function(x,i){return '<button data-b="road" data-i="'+i+'" class="'+(i===1?'now':'')+'"><i>'+x[0]+'</i><b>'+x[1]+'</b><small>'+x[2]+'</small></button>'}).join('')+'</div>'+
  '<p class="bzn mx">대리점 모집은 지사 구에 입점 학원이 30곳을 넘은 뒤에 열어요. 그래야 대리점이 들어오자마자 관리할 매출이 있어요.</p>'+
  /* 지원 */
  '<div class="h2"><b>🤲 본사가 드리는 것</b></div><div class="bzsp mx">'+
- [['📱','앱 운영','찍으면 학원 · 찍으면 과외'],['📺','전국 광고','신문 · TV · SNS'],['🧾','자동 정산','추천코드 실시간'],['🎒','홍보 키트','전단 · 배너 · QR'],['🎓','개설 교육','영업 · 앱 · 정산'],['🛡️','구역 보호','구 독점 · 동 배정']].map(function(x){return '<div><span>'+x[0]+'</span><b>'+x[1]+'</b><small>'+x[2]+'</small></div>'}).join('')+'</div>'+
+ [['📱','앱 운영','찍으면 학원 · 찍으면 과외'],['📺','전국 광고','신문 · TV · SNS'],['🧾','자동 정산','추천코드 실시간'],['🎒','홍보 키트','전단 · 배너 · QR'],['🎓','개설 교육','영업 · 앱 · 정산'],['🛡️','구역 보호','구 독점 · 동 배정']].map(function(x,i){return '<button data-b="sup" data-i="'+i+'"><span>'+x[0]+'</span><b>'+x[1]+'</b><small>'+x[2]+'</small></button>'}).join('')+'</div>'+
  /* FAQ */
  '<div class="h2"><b>❓ 자주 묻는 질문</b></div><div class="card mx bzq">'+
  [['증거금 1억 원은 돌려받나요?','증거금을 돌려받는 보증금으로 할지, 가맹비로 할지는 계약 전에 확정해 계약서에 적어요.'],['온라인 앱인데 우리 구 매출은 어떻게 나눠요?','가입·결제할 때 들어간 추천코드로 주인이 정해지고, 앱이 매달 자동 정산해요. 한 번 연결된 학원·학생은 계약 기간 동안 같은 코드에 묶여요.'],['대리점은 무엇으로 돈을 버나요?','동네 학원 입점비, 선생님 등록비, 추천코드로 가입한 학생 이용권 매출의 40%를 매달 받아요.'],['정산은 언제 받나요?','매월 말일 마감, 다음 달 10일 지급이에요. 환불·취소는 차감 후 지급돼요.'],['군 지역(기장·달성·군위)은요?','가까운 지사가 맡거나 추가 지사로 따로 모집해요.']].map(function(x){return '<details><summary>'+x[0]+'</summary><p>'+x[1]+'</p></details>'}).join('')+'</div>'+
@@ -1937,6 +1962,21 @@ function bizApply(type,region){var city=region?region.split(' ')[0]:BZ.city,gu=r
  $('afGo').onclick=function(){var nm=$('afN').value.trim(),ph=$('afP').value.replace(/[^0-9]/g,'');if(!nm){toast('이름을 적어 주세요');$('afN').focus();return}if(ph.length<10){toast('연락처를 확인해 주세요');$('afP').focus();return}if(!$('afA').checked){toast('개인정보 동의에 체크해 주세요');return}
   var reg=$('afC').value+' '+$('afG').value+'구';S.apps.unshift({type:type,region:reg,name:nm,phone:ph,job:$('afJ').value.trim(),msg:$('afM').value.trim(),ts:Date.now()});S.noti.unshift({e:'🏢',t:reg+' '+type+' 신청 접수',p:'담당자가 곧 연락드려요',ts:Date.now(),n:1});save();setPts();
   back();setTimeout(function(){if(cur.v==='biz')R.biz();confetti&&confetti();sheet('신청 완료','<div class="empty" style="padding:18px"><b>'+(type==='지사'?'🏢':'🏪')+'</b><span style="color:#141b33;font-weight:900;font-size:17px">'+esc(reg)+' '+type+' 신청이 접수됐어요</span><br>담당자가 영업일 기준 1~2일 안에 연락드려요.</div><div class="bysh"><b>📣 함께할 분께 알리기</b><p>우리 동네 학원 원장님, 교육 영업하시는 분께 보내 보세요</p><div class="g2"><button data-b="sharebiz">💬 카톡 공유</button><button data-go="home">🏠 홈으로</button></div></div>')},120)}}
+var BZD={
+ flow:[['📷 문제 찍기','학생이 모르는 문제를 찍으면 찍으면 학원 AI 선생님이 개념부터 풀이까지 알려 줘요. 모든 학생 유입의 시작점이에요.','snap','solve','📷 직접 찍어 보기'],
+  ['🙋 도저히 모르겠어요','AI 풀이로도 이해가 안 되면 \'이해 안 됨\' 메뉴에서 안 되는 부분을 복사하거나 사진으로 올려 다시 물어봐요.','snap','help','🙋 이해 안 됨 해 보기'],
+  ['🧑‍🏫 선생님 부탁해요','그래도 어려우면 버튼 하나로 찍으면 과외로 넘어가 우리 동네 진짜 선생님과 연결돼요. 이 연결에서 지사·대리점 매출이 생겨요.','teacher','','🧑‍🏫 선생님 부탁해요 보기'],
+  ['🏫 동네 선생님·학원','연결된 학원 입점비, 선생님 등록비, 매칭 수수료가 그 구 지사와 대리점 정산에 잡혀요. 아래 지역 현황에서 우리 구를 확인해 보세요.','region','','📍 지역 현황 보기']],
+ lv:[['🏛️ 서울 본사','앱 개발·운영, 전국 신문·TV 광고, 추천코드 정산, 지사 개설 교육을 맡아요.<br><br>• 지역 매출의 30%<br>• 대리점 가맹비의 50%<br>• 코드 없이 본사 광고로 직접 가입한 매출 100%'],
+  ['🏢 지사 (구마다 1곳)','증거금 1억 원으로 그 구의 독점 영업권을 가져요.<br><br>• 지역 매출 70% (대리점 몫 포함)<br>• 대리점 가맹비 50%<br>• 대리점 20곳 모집 · 동 단위 구역 배정<br>• 구 안 학원 입점 영업 · 지역 광고 판매'],
+  ['🏪 대리점 (지사당 20곳)','가맹비 1천만 원으로 동 1~2개 영업구역을 받아요.<br><br>• 내 추천코드 매출의 40%를 매달<br>• 동네 학원 입점 · 선생님 등록 영업<br>• 학교 앞 · 아파트 단지 홍보'],
+  ['👨‍👩‍👧 학원 · 선생님 · 학생','실제 매출이 생기는 곳이에요.<br><br>• 학원: 입점비 월 20만 원 (예시)<br>• 선생님: 등록비 월 3만 원 · 매칭 수수료<br>• 학생: 찍으면 학원 이용권']],
+ rev:[['🎫 학생 이용권','10회 9천 원부터 3년 50만 원까지. 대리점 추천코드로 가입한 학생의 결제는 그 대리점·지사 매출로 잡혀요.'],['🏫 학원 입점','찍으면 과외에서 우리 동네 학원으로 상단 노출. 월 20만 원(예시), 지사·대리점이 직접 영업해요.'],['🧑‍🏫 선생님 등록','과외 선생님 프로필 등록 월 3만 원(예시). 학생이 \'선생님 부탁해요\'로 찾아와요.'],['🤝 과외 매칭','학생과 선생님이 연결되면 첫 달 수업료의 20%(예시)가 수수료로 생겨요. 앱이 자동 처리해요.'],['📢 지역 광고','학원 · 문구점 · 서점의 동네 배너 광고 월 10~50만 원(예시). 지사가 판매해요.']],
+ sup:[['📱 앱 운영','찍으면 학원 · 찍으면 과외 두 앱을 본사가 개발하고 계속 업데이트해요.'],['📺 전국 광고','"선생님은 학생들과 놀기만 하세요, 공부는 찍으면 학원에서 다 가르칠게요" 신문 · TV · SNS 광고를 본사가 집행해요.'],['🧾 자동 정산','지사 · 대리점마다 추천코드를 드리고, 매달 말일 마감 · 다음 달 10일 지급해요. 앱에서 실시간으로 확인해요.'],['🎒 홍보 키트','전단, 배너, QR 포스터, 학원 입점 제안서를 드려요.'],['🎓 개설 교육','영업 방법, 앱 사용법, 정산 보는 법을 개설 전에 교육해요.'],['🛡️ 구역 보호','지사는 구 단위 독점, 대리점은 동 단위 배정. 다른 구역 영업은 해당 지사 동의 후에만 가능해요.']],
+ road:[['0 · 출시 준비','찍으면 과외 앱 완성, 추천코드 · 정산 화면, 계약서와 정보공개서를 준비해요.'],['1 · 서울 시범 3곳 (~3개월)','학원이 많은 강남 · 양천 · 노원에서 본사가 직접 운영하며 실제 매출 숫자를 만들어요. 지금 이 단계예요.'],['2 · 서울 25구 (4~6개월)','시범 지사 실적을 들고 나머지 22개 구 지사를 모집해요.'],['3 · 부산 15 · 대구 7 (7~9개월)','서울 지사 운영 사례로 지역 설명회를 열어요.'],['4 · 대전 5 · 광주 5 (10~12개월)','57개 지사를 모두 채워요.']]};
+function bizInfo(k,i){var d=BZD[k][i];if(!d)return;
+ if(k==='flow'){sheet(d[0],'<p class="bzip">'+d[1]+'</p>','<button class="btn" id="bzGo">'+d[4]+'</button>');$('bzGo').onclick=function(){if(d[2]==='teacher'){back();setTimeout(openTeacher,120);return}if(d[2]==='region'){back();setTimeout(function(){var g=$('bzC');if(g)g.scrollIntoView({behavior:'smooth',block:'center'})},150);return}closeLayer();history.replaceState({v:cur.v,p:cur.p},'');go(d[2],d[3])};return}
+ sheet(d[0],'<p class="bzip">'+d[1]+'</p>',k==='lv'&&i<3?'<button class="btn" data-b="apply" data-k="'+(i===2?'대리점':'지사')+'">'+(i===2?'🏪 대리점 신청':'🏢 지사 신청')+'</button>':'')}
 /* 이해 안 됨 결과 아래 '선생님 부탁해요' */
 var _drawSnap=drawSnap;drawSnap=function(){_drawSnap();var R2=$('sR');if(!R2||SN.mode!=='help'||!SN.res)return;
  R2.insertAdjacentHTML('beforeend','<button class="tchb mx" data-b="teacher"><span>🧑‍🏫</span><div><b>그래도 모르겠어요? 선생님 부탁해요</b><small>찍으면 과외 · 우리 동네 선생님과 바로 연결</small></div><i>›</i></button>')};
@@ -1946,6 +1986,7 @@ function openTeacher(){sheet('🧑‍🏫 선생님 부탁해요','<div class="t
 document.addEventListener('click',function(e){var b=e.target.closest('[data-b]');if(!b)return;var k=b.dataset.b;
  if(k==='apply'){if(layer){closeLayer();history.replaceState({v:cur.v,p:cur.p},'')}bizApply(b.dataset.k,b.dataset.r||null)}
  else if(k==='teacher')openTeacher();
+ else if(k==='flow'||k==='lv'||k==='rev'||k==='sup'||k==='road')bizInfo(k,+b.dataset.i);
  else if(k==='sharebiz')shareText('찍으면 과외 지사 모집','찍으면 학원 · 찍으면 과외 전국 지사·대리점 모집! 5대 도시 57개 구, 구마다 단 1곳이에요. 🏢',baseURL())});
 
 })();
